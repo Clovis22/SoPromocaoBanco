@@ -1,0 +1,114 @@
+﻿@model SoPromocao.Models.EMPRESA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EMPRESA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNPJ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BAIRRO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BAIRRO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SENHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SENHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FRASE_SEGURANCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FRASE_SEGURANCA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOLICITANTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLICITANTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RUA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RUA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMERO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMERO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_EMPRESA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

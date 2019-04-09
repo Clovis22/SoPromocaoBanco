@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PROJETO_SAD_ESIIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_ADMINISTRADOR">
+    <Key>
+      <PropertyRef Name="ID_ADMINISTRADOR" />
+    </Key>
+    <Property Name="ID_ADMINISTRADOR" Type="int" Nullable="false" />
+    <Property Name="RG_A" Type="int" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SOBRENOME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+    <Property Name="SENHA" Type="varchar" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_CONSUMIDOR">
+    <Key>
+      <PropertyRef Name="ID_CONSUMIDOR" />
+    </Key>
+    <Property Name="ID_CONSUMIDOR" Type="int" Nullable="false" />
+    <Property Name="RG_C" Type="int" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SOBRENOME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+    <Property Name="SEXO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FRASE_DE_SEGURANCA" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="SENHA" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="DATA_DE_NASCIMENTO" Type="date" Nullable="false" />
+    <Property Name="ENDERECO" Type="varchar" MaxLength="60" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="14" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="20" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TB_EMPRESA">
+    <Key>
+      <PropertyRef Name="ID_EMPRESA" />
+    </Key>
+    <Property Name="ID_EMPRESA" Type="int" Nullable="false" />
+    <Property Name="CNPJ" Type="int" Nullable="false" />
+    <Property Name="BAIRRO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SENHA" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="FRASE_SEGURANCA" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="14" />
+    <Property Name="SOLICITANTE" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="20" />
+    <Property Name="CEP" Type="varchar" MaxLength="9" />
+    <Property Name="NOME" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="RUA" Type="varchar" MaxLength="40" />
+    <Property Name="NUMERO" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_PROMOCAO">
+    <Key>
+      <PropertyRef Name="ID_PROMOCAO" />
+    </Key>
+    <Property Name="ID_PROMOCAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DETALHES" Type="varchar" MaxLength="200" />
+    <Property Name="CATEGORIA" Type="varchar" MaxLength="20" />
+    <Property Name="DATA_INICIO" Type="datetime" Nullable="false" />
+    <Property Name="DATA_FIM" Type="datetime" />
+    <Property Name="VALOR" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="20" />
+    <Property Name="BAIRRO" Type="varchar" MaxLength="20" />
+    <Property Name="RUA" Type="varchar" MaxLength="40" />
+    <Property Name="NUMERO" Type="int" />
+    <Property Name="LIMITE_DE_CUPONS" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_USUARIO_EMPRESA">
+    <Key>
+      <PropertyRef Name="ID_USUARIO_EMPRESA" />
+    </Key>
+    <Property Name="ID_USUARIO_EMPRESA" Type="int" Nullable="false" />
+    <Property Name="RG_E" Type="int" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SOBRENOME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+    <Property Name="SENHA" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="14" />
+    <Property Name="ID_EMPRESA" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_USUARIO_SISTEMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_CONSUMIDOR" Type="int" />
+    <Property Name="ID_ADMINISTRADOR" Type="int" />
+    <Property Name="ID_USUARIO_EMPRESA" Type="int" />
+  </EntityType>
+  <Association Name="FK_ID_ADMINISTRADOR">
+    <End Role="TB_ADMINISTRADOR" Type="Self.TB_ADMINISTRADOR" Multiplicity="0..1" />
+    <End Role="TB_USUARIO_SISTEMA" Type="Self.TB_USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_ADMINISTRADOR">
+        <PropertyRef Name="ID_ADMINISTRADOR" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_SISTEMA">
+        <PropertyRef Name="ID_ADMINISTRADOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_CONSUMIDOR">
+    <End Role="TB_CONSUMIDOR" Type="Self.TB_CONSUMIDOR" Multiplicity="0..1" />
+    <End Role="TB_USUARIO_SISTEMA" Type="Self.TB_USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_CONSUMIDOR">
+        <PropertyRef Name="ID_CONSUMIDOR" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_SISTEMA">
+        <PropertyRef Name="ID_CONSUMIDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EMPRESA">
+    <End Role="TB_EMPRESA" Type="Self.TB_EMPRESA" Multiplicity="1" />
+    <End Role="TB_USUARIO_EMPRESA" Type="Self.TB_USUARIO_EMPRESA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EMPRESA">
+        <PropertyRef Name="ID_EMPRESA" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_EMPRESA">
+        <PropertyRef Name="ID_EMPRESA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_USUARIO_EMPRESA">
+    <End Role="TB_USUARIO_EMPRESA" Type="Self.TB_USUARIO_EMPRESA" Multiplicity="0..1" />
+    <End Role="TB_USUARIO_SISTEMA" Type="Self.TB_USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_USUARIO_EMPRESA">
+        <PropertyRef Name="ID_USUARIO_EMPRESA" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_SISTEMA">
+        <PropertyRef Name="ID_USUARIO_EMPRESA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PROJETO_SAD_ESIIModelStoreContainer">
+    <EntitySet Name="TB_ADMINISTRADOR" EntityType="Self.TB_ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CONSUMIDOR" EntityType="Self.TB_CONSUMIDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_EMPRESA" EntityType="Self.TB_EMPRESA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PROMOCAO" EntityType="Self.TB_PROMOCAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_USUARIO_EMPRESA" EntityType="Self.TB_USUARIO_EMPRESA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_USUARIO_SISTEMA" EntityType="Self.TB_USUARIO_SISTEMA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ID_ADMINISTRADOR" Association="Self.FK_ID_ADMINISTRADOR">
+      <End Role="TB_ADMINISTRADOR" EntitySet="TB_ADMINISTRADOR" />
+      <End Role="TB_USUARIO_SISTEMA" EntitySet="TB_USUARIO_SISTEMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_CONSUMIDOR" Association="Self.FK_ID_CONSUMIDOR">
+      <End Role="TB_CONSUMIDOR" EntitySet="TB_CONSUMIDOR" />
+      <End Role="TB_USUARIO_SISTEMA" EntitySet="TB_USUARIO_SISTEMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EMPRESA" Association="Self.FK_ID_EMPRESA">
+      <End Role="TB_EMPRESA" EntitySet="TB_EMPRESA" />
+      <End Role="TB_USUARIO_EMPRESA" EntitySet="TB_USUARIO_EMPRESA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_USUARIO_EMPRESA" Association="Self.FK_ID_USUARIO_EMPRESA">
+      <End Role="TB_USUARIO_EMPRESA" EntitySet="TB_USUARIO_EMPRESA" />
+      <End Role="TB_USUARIO_SISTEMA" EntitySet="TB_USUARIO_SISTEMA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

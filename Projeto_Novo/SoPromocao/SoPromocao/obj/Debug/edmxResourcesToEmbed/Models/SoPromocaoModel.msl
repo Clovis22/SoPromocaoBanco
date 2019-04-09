@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PROJETO_SAD_ESIIModelStoreContainer" CdmEntityContainer="PROJETO_SAD_ESIIEntities">
+    <EntitySetMapping Name="TB_ADMINISTRADOR">
+      <EntityTypeMapping TypeName="PROJETO_SAD_ESIIModel.ADMINISTRADOR">
+        <MappingFragment StoreEntitySet="TB_ADMINISTRADOR">
+          <ScalarProperty Name="ID_ADMINISTRADOR" ColumnName="ID_ADMINISTRADOR" />
+          <ScalarProperty Name="RG_A" ColumnName="RG_A" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="SOBRENOME" ColumnName="SOBRENOME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CONSUMIDOR">
+      <EntityTypeMapping TypeName="PROJETO_SAD_ESIIModel.CONSUMIDOR">
+        <MappingFragment StoreEntitySet="TB_CONSUMIDOR">
+          <ScalarProperty Name="ID_CONSUMIDOR" ColumnName="ID_CONSUMIDOR" />
+          <ScalarProperty Name="RG_C" ColumnName="RG_C" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="SOBRENOME" ColumnName="SOBRENOME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="FRASE_DE_SEGURANCA" ColumnName="FRASE_DE_SEGURANCA" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="DATA_DE_NASCIMENTO" ColumnName="DATA_DE_NASCIMENTO" />
+          <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_EMPRESA">
+      <EntityTypeMapping TypeName="PROJETO_SAD_ESIIModel.EMPRESA">
+        <MappingFragment StoreEntitySet="TB_EMPRESA">
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="FRASE_SEGURANCA" ColumnName="FRASE_SEGURANCA" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="SOLICITANTE" ColumnName="SOLICITANTE" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="RUA" ColumnName="RUA" />
+          <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PROMOCAO">
+      <EntityTypeMapping TypeName="PROJETO_SAD_ESIIModel.PROMOCAO">
+        <MappingFragment StoreEntitySet="TB_PROMOCAO">
+          <ScalarProperty Name="ID_PROMOCAO" ColumnName="ID_PROMOCAO" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="DETALHES" ColumnName="DETALHES" />
+          <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+          <ScalarProperty Name="DATA_INICIO" ColumnName="DATA_INICIO" />
+          <ScalarProperty Name="DATA_FIM" ColumnName="DATA_FIM" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+          <ScalarProperty Name="RUA" ColumnName="RUA" />
+          <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+          <ScalarProperty Name="LIMITE_DE_CUPONS" ColumnName="LIMITE_DE_CUPONS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_USUARIO_EMPRESA">
+      <EntityTypeMapping TypeName="PROJETO_SAD_ESIIModel.USUARIO_EMPRESA">
+        <MappingFragment StoreEntitySet="TB_USUARIO_EMPRESA">
+          <ScalarProperty Name="ID_USUARIO_EMPRESA" ColumnName="ID_USUARIO_EMPRESA" />
+          <ScalarProperty Name="RG_E" ColumnName="RG_E" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="SOBRENOME" ColumnName="SOBRENOME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_USUARIO_SISTEMA">
+      <EntityTypeMapping TypeName="PROJETO_SAD_ESIIModel.USUARIO_SISTEMA">
+        <MappingFragment StoreEntitySet="TB_USUARIO_SISTEMA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_CONSUMIDOR" ColumnName="ID_CONSUMIDOR" />
+          <ScalarProperty Name="ID_ADMINISTRADOR" ColumnName="ID_ADMINISTRADOR" />
+          <ScalarProperty Name="ID_USUARIO_EMPRESA" ColumnName="ID_USUARIO_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

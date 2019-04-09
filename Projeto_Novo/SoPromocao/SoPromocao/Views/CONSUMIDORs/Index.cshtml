@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SoPromocao.Models.CONSUMIDOR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RG_C)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOBRENOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEXO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FRASE_DE_SEGURANCA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SENHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA_DE_NASCIMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENDERECO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RG_C)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOBRENOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEXO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FRASE_DE_SEGURANCA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SENHA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATA_DE_NASCIMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENDERECO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CIDADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_CONSUMIDOR }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_CONSUMIDOR }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_CONSUMIDOR })
+        </td>
+    </tr>
+}
+
+</table>

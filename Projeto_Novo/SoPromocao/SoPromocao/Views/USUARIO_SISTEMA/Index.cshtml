@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SoPromocao.Models.USUARIO_SISTEMA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_ADMINISTRADOR.NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_CONSUMIDOR.NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_USUARIO_EMPRESA.NOME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_ADMINISTRADOR.NOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_CONSUMIDOR.NOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TB_USUARIO_EMPRESA.NOME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

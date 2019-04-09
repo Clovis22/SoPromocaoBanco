@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SoPromocao.Models.PROMOCAO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DETALHES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA_INICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA_FIM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VALOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BAIRRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RUA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMERO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LIMITE_DE_CUPONS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DETALHES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATA_INICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATA_FIM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VALOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CIDADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BAIRRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RUA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMERO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LIMITE_DE_CUPONS)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PROMOCAO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_PROMOCAO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PROMOCAO })
+        </td>
+    </tr>
+}
+
+</table>

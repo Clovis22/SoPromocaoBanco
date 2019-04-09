@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PROJETO_SAD_ESIIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMINISTRADOR">
+    <Key>
+      <PropertyRef Name="ID_ADMINISTRADOR" />
+    </Key>
+    <Property Name="ID_ADMINISTRADOR" Type="Int32" Nullable="false" />
+    <Property Name="RG_A" Type="Int32" Nullable="false" />
+    <Property Name="NOME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SOBRENOME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SENHA" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TB_USUARIO_SISTEMA" Relationship="Self.FK_ID_ADMINISTRADOR" FromRole="TB_ADMINISTRADOR" ToRole="TB_USUARIO_SISTEMA" />
+  </EntityType>
+  <EntityType Name="CONSUMIDOR">
+    <Key>
+      <PropertyRef Name="ID_CONSUMIDOR" />
+    </Key>
+    <Property Name="ID_CONSUMIDOR" Type="Int32" Nullable="false" />
+    <Property Name="RG_C" Type="Int32" Nullable="false" />
+    <Property Name="NOME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SOBRENOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SEXO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FRASE_DE_SEGURANCA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SENHA" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATA_DE_NASCIMENTO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ENDERECO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="CIDADE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_USUARIO_SISTEMA" Relationship="Self.FK_ID_CONSUMIDOR" FromRole="TB_CONSUMIDOR" ToRole="TB_USUARIO_SISTEMA" />
+  </EntityType>
+  <EntityType Name="EMPRESA">
+    <Key>
+      <PropertyRef Name="ID_EMPRESA" />
+    </Key>
+    <Property Name="ID_EMPRESA" Type="Int32" Nullable="false" />
+    <Property Name="CNPJ" Type="Int32" Nullable="false" />
+    <Property Name="BAIRRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SENHA" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FRASE_SEGURANCA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="SOLICITANTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CIDADE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="NOME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RUA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO" Type="Int32" />
+    <NavigationProperty Name="TB_USUARIO_EMPRESA" Relationship="Self.FK_ID_EMPRESA" FromRole="TB_EMPRESA" ToRole="TB_USUARIO_EMPRESA" />
+  </EntityType>
+  <EntityType Name="PROMOCAO">
+    <Key>
+      <PropertyRef Name="ID_PROMOCAO" />
+    </Key>
+    <Property Name="ID_PROMOCAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DETALHES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DATA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DATA_FIM" Type="DateTime" Precision="3" />
+    <Property Name="VALOR" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CIDADE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BAIRRO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RUA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO" Type="Int32" />
+    <Property Name="LIMITE_DE_CUPONS" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO_EMPRESA">
+    <Key>
+      <PropertyRef Name="ID_USUARIO_EMPRESA" />
+    </Key>
+    <Property Name="ID_USUARIO_EMPRESA" Type="Int32" Nullable="false" />
+    <Property Name="RG_E" Type="Int32" Nullable="false" />
+    <Property Name="NOME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SOBRENOME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SENHA" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="ID_EMPRESA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TB_EMPRESA" Relationship="Self.FK_ID_EMPRESA" FromRole="TB_USUARIO_EMPRESA" ToRole="TB_EMPRESA" />
+    <NavigationProperty Name="TB_USUARIO_SISTEMA" Relationship="Self.FK_ID_USUARIO_EMPRESA" FromRole="TB_USUARIO_EMPRESA" ToRole="TB_USUARIO_SISTEMA" />
+  </EntityType>
+  <EntityType Name="USUARIO_SISTEMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CONSUMIDOR" Type="Int32" />
+    <Property Name="ID_ADMINISTRADOR" Type="Int32" />
+    <Property Name="ID_USUARIO_EMPRESA" Type="Int32" />
+    <NavigationProperty Name="TB_ADMINISTRADOR" Relationship="Self.FK_ID_ADMINISTRADOR" FromRole="TB_USUARIO_SISTEMA" ToRole="TB_ADMINISTRADOR" />
+    <NavigationProperty Name="TB_CONSUMIDOR" Relationship="Self.FK_ID_CONSUMIDOR" FromRole="TB_USUARIO_SISTEMA" ToRole="TB_CONSUMIDOR" />
+    <NavigationProperty Name="TB_USUARIO_EMPRESA" Relationship="Self.FK_ID_USUARIO_EMPRESA" FromRole="TB_USUARIO_SISTEMA" ToRole="TB_USUARIO_EMPRESA" />
+  </EntityType>
+  <Association Name="FK_ID_ADMINISTRADOR">
+    <End Role="TB_ADMINISTRADOR" Type="PROJETO_SAD_ESIIModel.ADMINISTRADOR" Multiplicity="0..1" />
+    <End Role="TB_USUARIO_SISTEMA" Type="PROJETO_SAD_ESIIModel.USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_ADMINISTRADOR">
+        <PropertyRef Name="ID_ADMINISTRADOR" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_SISTEMA">
+        <PropertyRef Name="ID_ADMINISTRADOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_CONSUMIDOR">
+    <End Role="TB_CONSUMIDOR" Type="PROJETO_SAD_ESIIModel.CONSUMIDOR" Multiplicity="0..1" />
+    <End Role="TB_USUARIO_SISTEMA" Type="PROJETO_SAD_ESIIModel.USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_CONSUMIDOR">
+        <PropertyRef Name="ID_CONSUMIDOR" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_SISTEMA">
+        <PropertyRef Name="ID_CONSUMIDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EMPRESA">
+    <End Role="TB_EMPRESA" Type="PROJETO_SAD_ESIIModel.EMPRESA" Multiplicity="1" />
+    <End Role="TB_USUARIO_EMPRESA" Type="PROJETO_SAD_ESIIModel.USUARIO_EMPRESA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EMPRESA">
+        <PropertyRef Name="ID_EMPRESA" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_EMPRESA">
+        <PropertyRef Name="ID_EMPRESA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_USUARIO_EMPRESA">
+    <End Role="TB_USUARIO_EMPRESA" Type="PROJETO_SAD_ESIIModel.USUARIO_EMPRESA" Multiplicity="0..1" />
+    <End Role="TB_USUARIO_SISTEMA" Type="PROJETO_SAD_ESIIModel.USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_USUARIO_EMPRESA">
+        <PropertyRef Name="ID_USUARIO_EMPRESA" />
+      </Principal>
+      <Dependent Role="TB_USUARIO_SISTEMA">
+        <PropertyRef Name="ID_USUARIO_EMPRESA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PROJETO_SAD_ESIIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_ADMINISTRADOR" EntityType="PROJETO_SAD_ESIIModel.ADMINISTRADOR" />
+    <EntitySet Name="TB_CONSUMIDOR" EntityType="PROJETO_SAD_ESIIModel.CONSUMIDOR" />
+    <EntitySet Name="TB_EMPRESA" EntityType="PROJETO_SAD_ESIIModel.EMPRESA" />
+    <EntitySet Name="TB_PROMOCAO" EntityType="PROJETO_SAD_ESIIModel.PROMOCAO" />
+    <EntitySet Name="TB_USUARIO_EMPRESA" EntityType="PROJETO_SAD_ESIIModel.USUARIO_EMPRESA" />
+    <EntitySet Name="TB_USUARIO_SISTEMA" EntityType="PROJETO_SAD_ESIIModel.USUARIO_SISTEMA" />
+    <AssociationSet Name="FK_ID_ADMINISTRADOR" Association="Self.FK_ID_ADMINISTRADOR">
+      <End Role="TB_ADMINISTRADOR" EntitySet="TB_ADMINISTRADOR" />
+      <End Role="TB_USUARIO_SISTEMA" EntitySet="TB_USUARIO_SISTEMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_CONSUMIDOR" Association="Self.FK_ID_CONSUMIDOR">
+      <End Role="TB_CONSUMIDOR" EntitySet="TB_CONSUMIDOR" />
+      <End Role="TB_USUARIO_SISTEMA" EntitySet="TB_USUARIO_SISTEMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EMPRESA" Association="Self.FK_ID_EMPRESA">
+      <End Role="TB_EMPRESA" EntitySet="TB_EMPRESA" />
+      <End Role="TB_USUARIO_EMPRESA" EntitySet="TB_USUARIO_EMPRESA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_USUARIO_EMPRESA" Association="Self.FK_ID_USUARIO_EMPRESA">
+      <End Role="TB_USUARIO_EMPRESA" EntitySet="TB_USUARIO_EMPRESA" />
+      <End Role="TB_USUARIO_SISTEMA" EntitySet="TB_USUARIO_SISTEMA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
