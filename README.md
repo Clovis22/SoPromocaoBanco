@@ -1,0 +1,2 @@
+# SoPromocaoBanco
+Projeto utilizando banco
